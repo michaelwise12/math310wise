@@ -1,0 +1,88 @@
+% PREAMBLE
+\documentclass[12pt]{article}
+\usepackage{amssymb, amsmath, amsthm}
+   % libraries of additional mathematics commands  
+\usepackage[paper=letterpaper, margin=1in]{geometry}
+   % sets margins and space for headers
+\usepackage{setspace, listings}
+   % allow for adjusted line spacing and printing source code
+
+\title{MATH 310L112\\
+       Introduction to Mathematical Reasoning\\
+       Fun With \LaTeX}
+\author{Michael Wise}
+\date{February 19th, 2020}
+% END PREAMBLE 
+
+\begin{document}
+\maketitle
+%\thispagestyle{empty}
+\begin{description}
+
+\item[Exercise 42.1:] Give an example of a set $S$ such that $S \in \mathcal{P}(\mathbb{N})$.
+
+\begin{spacing}{2}
+\textit{Solution.} We want a set $S$ that is in the power set of $\mathbb{N}$. In other words, we want a set that is a subset of $\mathbb{N}$. One such set is $S = \{1,2\}$.
+\end{spacing}
+  
+\item[Exercise 42.6:] Let $A$ and $B$ be sets. Prove that $A \cap B \subseteq B$.
+
+\begin{spacing}{2}
+\begin{proof}
+Let $ x \in A \cap B$. By definition of set intersection we have that $x \in A$ and $x \in B$. Since $x \in A \cap B$ implies $x \in B$, we conclude that $A \cap B \subseteq B$.
+\end{proof}
+\end{spacing} 
+
+\item[Exercise 42.9:] Let $ x \in \mathbb{Z}$. If $5x - 7$ is odd, then $x$ is even.
+
+\begin{spacing}{2}
+\begin{proof}
+Let $x \in \mathbb{Z}$ and assume that $x$ is odd. Then $x=2y+1$, where $y \in \mathbb{Z}$. Therefore, \[5x-7=5(2y+1)-7=10y-2=2(5y-1).\]
+Since $5y-1$ is an integer, $5x-7$ is even.
+\end{proof}
+\end{spacing} 
+
+\item[Exercise 42.12:] Let $ x \in \mathbb{Z}$. If $3 \nmid (x^2-1)$, then $3 \mid x$.
+
+\begin{spacing}{2}
+\begin{proof}
+Let $x \in \mathbb{Z}$ and assume that $3 \nmid x$. Then either $x=3q+1$ for some integer $q$, or $x=3q+2$ for some integer $q$. We consider these two cases.
+\newline
+Case 1. $x=3q+1$ for some integer $q$. Then
+\begin{align*}
+x^2-1 &= (3q+1)^2-1 \\
+&= (9q^2+6q+1)-1 \\
+&= 9q^2+6q \\
+&= 3(3q^2+2q).
+\end{align*}
+Since $(3q^2+2q)$ is an integer, $3 \mid (x^2-1)$.
+
+\newline
+Case 2. $x=3q+2$ for some integer $q$. Then
+\begin{align*}
+x^2-1 &= (3q+2)^2-1 \\
+&= (9q^2+12q+4)-1 \\
+&= 9q^2+12q+3 \\
+&= 3(3q^2+4q+1).
+\end{align*}
+Since $(3q^2+4q+1)$ is an integer, $3 \mid (x^2-1)$.
+\end{proof}
+\end{spacing} 
+\end{description}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% The commands in this section print the source code starting
+% on a new page. Comment out or delete if you do not want to 
+% include the source code in your document.
+%
+\newpage
+\lstset{
+   basicstyle=\footnotesize\ttfamily,
+   breaklines=true,
+   language=[LaTeX]{TeX}
+   }
+\lstinputlisting{HW template.tex} % Change to correct filename
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\end{document}
