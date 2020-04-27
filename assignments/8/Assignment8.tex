@@ -1,0 +1,84 @@
+% PREAMBLE
+\documentclass[12pt]{article}
+\usepackage{amssymb, amsmath, amsthm}
+   % libraries of additional mathematics commands  
+\usepackage[paper=letterpaper, margin=1in]{geometry}
+   % sets margins and space for headers
+\usepackage{setspace, listings}
+   % allow for adjusted line spacing and printing source code
+\title{MATH 310L112\\
+       Introduction to Mathematical Reasoning\\
+       Assignment \#8}
+\author{Michael Wise}
+\date{April 10th, 2020}
+% END PREAMBLE 
+
+\begin{document}
+\maketitle
+%\thispagestyle{empty}
+\begin{description}
+\section*{Chapter 7}
+\item[Exercise 8:] Suppose $a,b \in \mathbb{Z}$. Prove that $a \equiv b\pmod{10}$ if and only if $a \equiv b\pmod{2}$ and $a \equiv b\pmod{5}$.
+\begin{spacing}{2}
+\begin{proof}
+First we show that $a \equiv b\pmod{10}$ implies that $a \equiv b\pmod{2}$ and $a \equiv b\pmod{5}$. We use direct proof. Suppose that $a \equiv b\pmod{10}$. Then by definition, $10 \mid (a - b)$ which means $a = 10k + b$ for some $k \in \mathbb{Z}$. Factoring gives us $a = 2(5k) + b$, which shows that  $a \equiv b\pmod{2}$ because $5k \in \mathbb{Z}$. In a similar manner, we can factor and get $a = 5(2k) + b$, which proves that $a \equiv b\pmod{5}$.
+\newline
+Conversely, we need to prove that $a \equiv b\pmod{2}$ and $a \equiv b\pmod{5}$ imply that $a \equiv b\pmod{10}$. We can prove this directly. Assume that $a \equiv b\pmod{2}$ and $a \equiv b\pmod{5}$. Therefore, $2 \mid (a - b)$ and $5 \mid (a - b)$. By definition, we can say $a - b = 2k = 5l$ for some $k,l \in \mathbb{Z}$. We know that both $2$ and $5$ are prime. This means $2$ has to divide one of the factors of $5l$. Since $2$ doesn't divide $5$, it must divide $l$. Thus, $l = 2x$ for some $x \in \mathbb{Z}$. Finally, we get that $a-b = 10x$ and therefore $a \equiv b\pmod{10}$.
+\end{proof}
+\end{spacing}
+\item[Exercise 12:] There exists a positive real number $x$ for which $x^2 < \sqrt{x}$.
+
+\begin{spacing}{2}
+\begin{proof}
+Let $x = \frac{1}{4}$. We know that $\frac{1}{4} \in \mathbb{R}$ and is positive. Then
+\begin{align*}
+x^2 &< \sqrt{x} \\
+\left(\frac{1}{4}\right)^2 &< \sqrt{\frac{1}{4}} \\
+\frac{1}{16} &< \frac{1}{2}.
+\end{align*}
+We have just shown an example of a positive real number for which $x^2 < \sqrt{x}$.
+\end{proof}
+\end{spacing} 
+\section*{Chapter 8}
+\item[Exercise 28:] Prove that $\{12a+25b: a,b \in \mathbb{Z}\} = \mathbb{Z}$.
+
+\begin{spacing}{2}
+\begin{proof}
+Let $A = \{12a+25b: a,b \in \mathbb{Z}\}$. First we show $A \subseteq \mathbb{Z}$. Suppose $x \in A$. This means that $x = 12a+25b$. Since $a,b \in \mathbb{Z}$, then $x=12a+25b$ will always be an integer by multiplication and addition rules. Therefore $x \in \mathbb{Z}$. Because $x \in A$ implies $x \in \mathbb{Z}$, it follows that $A \subseteq \mathbb{Z}$.
+\newline
+Next we show that $\mathbb{Z} \subseteq A$. Suppose $x \in \mathbb{Z}$. We need to show that $x \in A$. Notice how for $a=-2$ and $b=1$ that $12(-2) + 25(1) = 1$. Multiplying by $x$ gives us $12(-2x) + 25(x) = x$. This shows us that $x \in \{12a+25b: a,b \in \mathbb{Z}\} = A$. Because $x \in \mathbb{Z}$ implies $x \in A$, it follows that $\mathbb{Z} \subseteq A$.
+\newline
+Therefore, since $A \subseteq \mathbb{Z}$ and $\mathbb{Z} \subseteq A$, we have proven that $A = \mathbb{Z}$.
+\end{proof}
+\end{spacing} 
+\section*{Chapter 9}
+\item[Exercise 16:] If $A$ and $B$ are finite sets, then $|A \cup B| = |A| + |B|$.
+\begin{spacing}{2}
+\begin{proof}[Disproof]
+This statement is \textbf{false} because of the following counterexample.
+\newline
+Let $A = \{1,2,3,4\}$ and $B = \{3,4,5,6\}$. Therefore, $A \cup B = \{1,2, 3,4,5,6\}$. Note that $|A| = 4, |B| = 4$, and $|A \cup B| = 6$. Consider the sum of the cardinalities
+\begin{align*}
+|A| + |B| &= 4 + 4 \\
+&= 8 \\ 
+&\neq |A \cup B|.
+\end{align*}
+In this example $|A \cup B| \neq |A| + |B|$, therefore making the statement false.
+\end{proof}
+\end{spacing} 
+\end{description}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% The commands in this section print the source code starting
+% on a new page. Comment out or delete if you do not want to 
+% include the source code in your document.
+%
+\newpage
+\lstset{
+   basicstyle=\footnotesize\ttfamily,
+   breaklines=true,
+   language=[LaTeX]{TeX}
+   }
+\lstinputlisting{Assignment8.tex} % Change to correct filename
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\end{document}
