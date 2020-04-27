@@ -1,0 +1,50 @@
+% PREAMBLE
+\documentclass[12pt]{article}
+\usepackage{amssymb, amsmath, amsthm}
+   % libraries of additional mathematics commands  
+\usepackage[paper=letterpaper, margin=1in]{geometry}
+   % sets margins and space for headers
+\usepackage{setspace, listings}
+   % allow for adjusted line spacing and printing source code
+\title{MATH 310L112\\
+       Introduction to Mathematical Reasoning\\
+       Presentation \#1}
+\author{Michael Wise}
+\date{March 11th, 2020}
+% END PREAMBLE 
+
+\begin{document}
+\maketitle
+%\thispagestyle{empty}
+\begin{description}
+
+\item[Problem 3:] If $a$ and $c$ are odd integers, then $ab + bc$ is even for every integer $b$.
+
+\begin{spacing}{2}
+\begin{proof}
+Suppose that $a$ and $c$ are odd integers, and $b \in \mathbb{Z}$. By definition, this means $a=2k+1$ and $c=2l+1$ for some $k,l \in \mathbb{Z}$. Then
+\begin{align*}
+ab + bc &= b(a+c) \\
+&= b(2k+1 + 2l+1) \\
+&= b(2k+2l+2) \\
+&= 2b(k+l+1).
+\end{align*}
+Since $b(k+l+1)$ is an integer, $ab+bc$ is even.
+\end{proof}
+\end{spacing}
+\end{description}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% The commands in this section print the source code starting
+% on a new page. Comment out or delete if you do not want to 
+% include the source code in your document.
+%
+\newpage
+\lstset{
+   basicstyle=\footnotesize\ttfamily,
+   breaklines=true,
+   language=[LaTeX]{TeX}
+   }
+\lstinputlisting{Presentation1.tex} % Change to correct filename
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\end{document}
