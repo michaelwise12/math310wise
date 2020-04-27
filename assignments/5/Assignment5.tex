@@ -1,0 +1,97 @@
+% PREAMBLE
+\documentclass[12pt]{article}
+\usepackage{amssymb, amsmath, amsthm}
+   % libraries of additional mathematics commands  
+\usepackage[paper=letterpaper, margin=1in]{geometry}
+   % sets margins and space for headers
+\usepackage{setspace, listings}
+   % allow for adjusted line spacing and printing source code
+\title{MATH 310L112\\
+       Introduction to Mathematical Reasoning\\
+       Assignment \#5}
+\author{Michael Wise}
+\date{March 4th, 2020}
+% END PREAMBLE 
+
+\begin{document}
+\maketitle
+%\thispagestyle{empty}
+\begin{description}
+
+\item[Exercise 6:] Suppose $a,b,c \in \mathbb{Z}$. If $a \mid b$ and $a \mid c$, then $a \mid (b + c)$.
+
+
+\begin{spacing}{2}
+\begin{proof}
+Let $a \mid b$ and $a \mid c$ for $a,b,c \in \mathbb{Z}$. We can say $b=ka$ and $c=la$ for some $k,l \in \mathbb{Z}$. Then, $b + c = ka + la = a(k+l)$. We have just shown that their sum is a multiple of $a$ and thus, $a \mid (b + c)$.
+\end{proof}
+\end{spacing}
+\vspace{.001in}
+\item[Exercise 14:] If $n \in \mathbb{Z}$, then $5n^2 + 3n + 7$ is odd. (Try cases.)
+
+\begin{spacing}{2}
+\begin{proof}
+Suppose $n \in \mathbb{Z}$. Therefore, $n$ can be even or odd. Then either $n=2a$ or $n=2a+1$ for some $a \in \mathbb{Z}$. Let's consider both of these cases.
+\newline
+Case 1. $n=2a$ for some $a \in \mathbb{Z}$. Then
+\begin{align*}
+5n^2 + 3n + 7 &= 5(2a)^2 + 3(2a) + 7 \\
+&= 20a^2 + 6a + 6 + 1 \\
+&= 2(10a^2 + 3a + 3) + 1.
+\end{align*}
+Since $(10a^2 + 3a + 3)$ is just an integer, $5n^2 + 3n + 7$ is odd.
+\newline
+Case 2. $n=2a+1$ for some $a \in \mathbb{Z}$. Then
+\begin{align*}
+5n^2 + 3n + 7 &= 5(2a+1)^2 + 3(2a+1) + 7 \\
+&= 5(4a^2+4a+1) + 6a + 3 + 7 \\
+&= 20a^2 + 26a + 14 + 1 \\
+&= 2(10a^2 + 13a + 7) + 1.
+\end{align*}
+Since $(10a^2 + 13a + 7)$ is just an integer, $5n^2 + 3n + 7$ is odd.
+\newline
+In each case we get that $5n^2 + 3n + 7$ is odd, as desired.
+\end{proof}
+\end{spacing} 
+
+\item[Exercise 16:] If two integers have the same parity, then their sum is even.
+
+\begin{spacing}{2}
+\begin{proof}
+Suppose $x,y \in \mathbb{Z}$ have the same parity. Therefore, either $x,y$ are both odd or $x,y$ are both even. We have two cases:
+\newline
+Case 1. $x,y$ are both odd. Then, $x=2a+1$ and $y=2b+1$ for some $a,b \in \mathbb{Z}$. Then
+\begin{align*}
+x+y &= 2a+1 + 2b+1 \\
+&= 2a + 2b + 2 \\
+&= 2(a + b + 1).
+\end{align*}
+Since $(a+b+1)$ is an integer, by definition, $x+y$ is even.
+\newline
+Case 2. $x,y$ are both even. Then, $x=2a$ and $y=2b$ for some $a,b \in \mathbb{Z}$. Then
+\begin{align*}
+x+y &= 2a + 2b \\
+&= 2a + 2b \\
+&= 2(a + b).
+\end{align*}
+Since $(a+b)$ is an integer, by definition, $x+y$ is even.
+\newline
+Because $x+y$ is even in both cases, we are done.
+\end{proof}
+\end{spacing} 
+\end{description}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% The commands in this section print the source code starting
+% on a new page. Comment out or delete if you do not want to 
+% include the source code in your document.
+%
+\newpage
+\lstset{
+   basicstyle=\footnotesize\ttfamily,
+   breaklines=true,
+   language=[LaTeX]{TeX}
+   }
+\lstinputlisting{Assignment5.tex} % Change to correct filename
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\end{document}
