@@ -1,0 +1,123 @@
+% PREAMBLE
+\documentclass[12pt]{article}
+\usepackage{amssymb, amsmath, amsthm}
+   % libraries of additional mathematics commands  
+\usepackage[paper=letterpaper, margin=1in]{geometry}
+   % sets margins and space for headers
+\usepackage{setspace, listings}
+   % allow for adjusted line spacing and printing source code
+\usepackage{graphicx}
+\graphicspath{ {./images/} }
+\title{MATH 310L112\\
+       Introduction to Mathematical Reasoning\\
+       Assignment \#11}
+\author{Michael Wise}
+\date{May 3rd, 2020}
+% END PREAMBLE 
+
+\begin{document}
+\maketitle
+%\thispagestyle{empty}
+\begin{description}
+\section*{Section 11.5}
+\item[Exercise 8:] Suppose $[a], [b] \in \mathbb{Z}_n$, and $[a] = [a']$ and $[b] = [b']$. Alice adds $[a]$ and $[b]$ as $[a] + [b] = [a+b]$. Bob adds them as $[a'] + [b'] = [a'+b']$. Show that their answers $[a+b]$ and $[a'+ b']$ are the same.
+\begin{spacing}{2}
+\begin{proof}
+Suppose $[a], [b] \in \mathbb{Z}_n$ and $n \in \mathbb{N}$. We must show that $[a+b] = [a' + b']$. Since $[a] = [a']$, we know that $a \equiv a' \pmod{n}$. Therefore, by definition, $n \mid (a - a')$, so $a-a' = nk$ for some $k \in \mathbb{Z}$. Likewise, because $[b] = [b']$, we know that $b \equiv b' \pmod{n}$. Thus, $n \mid (b - b')$, so $b-b' = nl$ for some $l \in \mathbb{Z}$. Therefore, $a = a' + nk$ and $b = b' + nl$. Adding these equations together gives us
+\begin{align*}
+    (a + b) &= a' + nk + b' + nl \\
+    &= (a' + b') + n(k+l).
+\end{align*}
+We can subtract $(a' + b' )$ from both sides to get $(a + b) - (a' + b') = n(k+l)$. Consequently, this means $n \mid \big[(a + b) - (a' + b')\big]$, and it follows that $(a+b) \equiv (a' + b') \pmod{n}$. From that we conclude that $[a+b] = [a' + b']$.
+\end{proof}
+\end{spacing}
+\section*{Section 12.1}
+\item[Exercise 12:] Is the set $\theta = \{\big((x,y), (3y,2x,x+y)\big) : x,y \in \mathbb{R}\}$ a function? If so, what is its domain and range? What can be said about the codomain?
+\begin{spacing}{2}
+\begin{proof}[Solution]
+Observe that the set $\theta = \{\big((x,y), (3y,2x,x+y)\big) : x,y \in \mathbb{R}\} \subseteq \mathbb{R}^2 \times \mathbb{R}^3$. Thus, $\theta$ is a relation from $\mathbb{R}^2$ to $\mathbb{R}^3$. For every $(x,y) \in \mathbb{R}^2$ there will be only one unique point $(3y,2x,x+y) \in \mathbb{R}^3$. Therefore, $\theta$ is a function from $\mathbb{R}^2$ to $\mathbb{R}^3$.
+\newline
+Since we have that $\theta:\mathbb{R}^2 \to \mathbb{R}^3$, we can identify the domain of $\theta$ as $\mathbb{R}^2$ and the codomain of $\theta$ as $\mathbb{R}^3$. Let $a,b,c \in \mathbb{R}$. Then the range of $\theta$ is $\{(a,b,c) \in \mathbb{R}^3: a=3y, b=2x, c=x+y; (x,y) \in \mathbb{R}^2\}$.
+\end{proof}
+\end{spacing} 
+\section*{Section 12.2}
+\item[Exercise 8:] A function $f:\mathbb{Z} \times \mathbb{Z} \to \mathbb{Z} \times \mathbb{Z}$ is defined as $f(m,n) = (m+n,2m+n)$. Verify whether this function is injective and whether it is surjective.
+\begin{spacing}{2}
+\begin{proof}
+To show that $f$ is injective, we will use contrapositive proof. We must prove that $f(m,n)=f(k,l)$ implies $(m,n)=(k,l)$. Assume that $(m,n),(k,l) \in \mathbb{Z} \times \mathbb{Z}$ and $f(m,n)=f(k,l)$. Therefore, $(m+n,2m+n) = (k+l,2k+l)$. We then get that $m+n = k+l$ and $2m+n = 2k+l$. By subtracting the first equation from the second we find that $m=k$. Then, subtracting $m=k$ from $m+n = k+l$ gets us $n=l$. Because $m=k$ and $n=l$, it means that $(m,n)=(k,l)$. Thus $f$ is injective.
+\newline
+Next, we will show that $f$ is surjective. Suppose $(b,c) \in \mathbb{Z} \times \mathbb{Z}$ is a random element. We must show that there exists some $(x,y) \in \mathbb{Z} \times \mathbb{Z}$ for which $f(x,y) = (b,c)$. If we want $f(x,y) = (b,c)$, this means $(x+y,2x+y) = (b,c)$, giving us a system of equations:
+\begin{align*}
+    x + y &= b \\
+    2x + y &= c.
+\end{align*}
+After solving, we find that $x= c-b$ and $y = 2b- c$. Consequently, $(x,y) = (c-b,2b-c)$, so $f(c-b,2b-c)=(b,c)$. Thus, $f$ is surjective.
+\end{proof}
+\end{spacing} 
+
+\item[Exercise 12:] Consider the function $\theta:\{0,1\} \times \mathbb{N} \to \mathbb{Z}$ defined as $\theta(a,b)=a-2ab+b$. Is $\theta$ injective? Is it surjective? Bijective? Explain.
+\begin{spacing}{2}
+\begin{proof}
+We will use contrapositive proof to show that $\theta$ is injective. Therefore, we must show that $\theta(a,b) = \theta(k,l)$ implies  $(a,b) = (k,l)$. Suppose that $\theta(a,b) = \theta(k,l)$. Then $a-2ab+b = k-2kl+l$. We know that the first coordinate of our ordered pair must be either $0$ or $1$. We can also check when $a \neq k$ to make sure that it holds true that $b \neq l$. There are three cases.
+\newline
+\textbf{Case 1.} Let $a = k = 0$. Then
+\begin{align*}
+    a-2ab+b &= k-2kl+l \\
+    0-0+b &= 0-0+l \\
+    b &= l.
+\end{align*}
+Since $a=k$ and $b=l$, it follows that $(a,b) = (k,l)$.
+\newline
+\textbf{Case 2.} Let $a = k = 1$. Then
+\begin{align*}
+    a-2ab+b &= k-2kl+l \\
+    1-2b+b &= 1-2l+l \\
+    -2b+b &= -2l+l \\
+    b &= l.
+\end{align*}
+Since $a=k$ and $b=l$, it follows that $(a,b) = (k,l)$.
+\newline
+\textbf{Case 3.} Let $a = 1$ and $k = 0$. Then
+\begin{align*}
+    a-2ab+b &= k-2kl+l \\
+    1-2b+b &= 0-0+l \\
+    1-b &= l.
+\end{align*}
+Regardless of whether $a$ is equal to $0$ or $1$, we get that $(a,b) = (k,l)$. Thus $\theta$ is injective.
+\newline
+Next, we will show that $\theta$ is surjective. Suppose $x \in \mathbb{Z} $ is an arbitrary element. We want to show that there is an $(a,b) \in \{0,1\} \times \mathbb{N}$ for which $\theta(a,b) = x$. This means that $a -2ab + b = x$. We can again look at two cases where $a = 0$ and $a=1$.
+\newline
+\textbf{Case 1.} Let $a = 0$. Then
+\begin{align*}
+    \theta(0,b) = 0 - 0 + b = x \\
+    b = x.
+\end{align*}
+Thus, if $x$ is positive, we can imagine any $b \in \mathbb{N}$.
+\newline
+\textbf{Case 2.} Let $a = 1$. Then
+\begin{align*}
+    \theta(1,b) &= 1 - 2b + b = x \\
+    &= 1 - b = x. \\
+\end{align*}
+In a situation where $x$ is negative, we can assume $b > 1$.
+Since $\theta(a,b) = x$ for $(a,b) \in \{0,1\} \times \mathbb{N}$, it follows that $\theta$ is surjective.
+\newline
+Because $\theta$ is both injective and surjective, it is bijective as well.
+\end{proof}
+\end{spacing}
+\end{description}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% The commands in this section print the source code starting
+% on a new page. Comment out or delete if you do not want to 
+% include the source code in your document.
+%
+\newpage
+\lstset{
+   basicstyle=\footnotesize\ttfamily,
+   breaklines=true,
+   language=[LaTeX]{TeX}
+   }
+\lstinputlisting{Assignment11.tex} % Change to correct filename
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\end{document}
